@@ -37,13 +37,13 @@ describe('Memory Reducer', () => {
       type: 'FIRST_CARD_GUESS',
       cardId: 3
     })).toEqual({
-      firstGuessDeck,
+      deck: firstGuessDeck,
       guess1: {
         id: 3,
         code: "goFish()",
         displayed: true
       },
-      guess2: null, 
+      guess2: {}, 
       score: 0
     })
   })
@@ -53,7 +53,7 @@ describe('Memory Reducer', () => {
       type: 'SECOND_CARD_GUESS',
       cardId: 3
     })).toEqual({
-      secondGuessDeck,
+      deck: secondGuessDeck,
       guess1: {
         id: 3,
         code: "goFish()",
