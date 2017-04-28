@@ -49,9 +49,18 @@ describe('Memory Reducer', () => {
   })
 
   it("handles the 'SECOND_CARD_GUESS", () => {
-    expect(reducer(firstGuessDeck, {
+    expect(reducer({
+      deck: firstGuessDeck,
+      guess1: {
+        id: 3,
+        code: "goFish()",
+        displayed: true
+      },
+      guess2: {}, 
+      score: 0
+    }, {
       type: 'SECOND_CARD_GUESS',
-      cardId: 3
+      cardId: 5
     })).toEqual({
       deck: secondGuessDeck,
       guess1: {

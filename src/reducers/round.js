@@ -16,30 +16,36 @@ const initialState = {
   guess2: {},
   score: 0
 }
+let guessCard = {}
 
 export default (state = initialState, action) => {
-  // action = {
-  //   type: 'FIRST_CARD_GUESS',
-  //   cardId: 3
-  // }
   switch(action.type) {
 
     case "FIRST_CARD_GUESS":
-      let guessCard = {};
-      const newDeck = state.deck.map(card => {
-        if (card.id === action.cardId) {
-          guessCard = Object.assign({}, card, { displayed: true })
-          return Object.assign({}, card, { displayed: true })
-        }
-        return card
-      })
       return {
         ...state,
-        deck: newDeck,
+        deck: state.deck.map(card => {
+          if (card.id === action.cardId) {
+            guessCard = Object.assign({}, card, { displayed: true })
+            return Object.assign({}, card, { displayed: true })
+          }
+          return card
+        }),
         guess1: guessCard,
       }
     
     case "SECOND_CARD_GUESS":
+      return {
+        ...state,
+        deck: state.deck.map(card => {
+          if (card.id === action.cardId) {
+            guessCard = Object.assign({}, card, { displayed: true })
+            return Object.assign({}, card, { displayed: true })
+          }
+          return card
+        }),
+        guess2: guessCard,
+      }
 
     default:
       return state;
