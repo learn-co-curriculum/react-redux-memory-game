@@ -1,4 +1,4 @@
-import memoryReducer from '../memoryReducer';
+import reducer from '../round';
 import deck from '../../data/deck'
 
 const initialState = {
@@ -29,11 +29,11 @@ describe('Memory Reducer', () => {
   })
 
   it('returns the initial state by default', () => {
-    expect(memoryReducer(undefined, {})).toEqual(initialState);
+    expect(reducer(undefined, {})).toEqual(initialState);
   })
 
   it("handles the first card guess", () => {
-    expect(memoryReducer(initialState, {
+    expect(reducer(initialState, {
       type: 'FIRST_CARD_GUESS',
       cardId: 3
     })).toEqual({
@@ -49,7 +49,7 @@ describe('Memory Reducer', () => {
   })
 
   it("handles the 'SECOND_CARD_GUESS", () => {
-    expect(memoryReducer(firstGuessDeck, {
+    expect(reducer(firstGuessDeck, {
       type: 'SECOND_CARD_GUESS',
       cardId: 3
     })).toEqual({

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+
 import ScoreBoard from '../components/ScoreBoard';
 import Cards from '../components/Cards';
+
 import './App.css';
 import deck from '../data/deck'
 
