@@ -21,12 +21,12 @@ export default [
   },
   {
     id: 5,
-    code: "let hour = currentTime || Date.new()",
+    code: "let playTime = currentTime || Date.new()",
     displayed: false
   },
   {
     id: 6,
-    code: "let hour = currentTime || Date.new()",
+    code: "let playTime = currentTime || Date.new()",
     displayed: false
   },
   {
