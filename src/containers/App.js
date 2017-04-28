@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import ScoreBoard from '../components/ScoreBoard';
 import Cards from '../components/Cards';
 
 import './App.css';
-import deck from '../data/deck'
 
 class App extends Component {
   render() {
+    const { score, deck } = this.props.round
+    
     return (
       <div className="centered">
-        <ScoreBoard score={33}/>
+        <ScoreBoard score={score}/>
         <Cards deck={deck}/>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    round: state.round
+  })
+)(App);
